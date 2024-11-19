@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-green-500 text-white flex justify-between items-center py-4 px-6">
+        <button id="productos-btn" class="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M3 12h18m-7 9h7" />
+            </svg>
+        </button>
+        <h1 class="text-2xl font-bold">Menú</h1>
+        <button id="carrito-btn" class="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 8m12.6-8L18.3 21m-4.2-8H7m6 0l-1.5 8M9 21a1 1 0 11-2 0m10 0a1 1 0 11-2 0" />
+            </svg>
+        </button>
+    </header>
+    <div id="sidebar-carrito" class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300">
+        <div class="p-4 border-b">
+            <h2 class="text-2xl font-bold">Carrito</h2>
+        </div>
+        <div id="orden-contenido" class="p-4 space-y-4">
+        </div>
+        <div class="p-4 border-t">
+            <button id="cerrar-carrito" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600">
+                Cerrar
+            </button>
+        </div>
+
+    </div>
+
+    <div id="modal-orden" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-md w-96">
+            <h2 class="text-2xl font-bold mb-4">Crear Orden</h2>
+            <form id="form-orden" class="space-y-4">
+                <div>
+                    <label for="locacion" class="block text-gray-700">Locación</label>
+                    <select id="locacion" class="w-full p-2 border border-gray-300 rounded">
+                    </select>
+                </div>
+                <div>
+                    <label for="para-llevar" class="block text-gray-700">¿Es para llevar?</label>
+                    <select id="para-llevar" class="w-full p-2 border border-gray-300 rounded">
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <button id="confirmar-nueva-orden" type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                    Crear Orden
+                </button>
+            </form>
+        </div>
+    </div>
+    
+<div id="modal-detalle-orden" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-4">Agregar Producto</h2>
+        <div id="detalle-producto" class="mb-4">
+            <h3 class="text-lg font-bold" id="producto-nombre"></h3>
+            <p id="producto-descripcion" class="text-gray-500"></p>
+            <p class="text-sm text-gray-700">
+                Precio unitario: <span id="producto-precio" class="font-bold"></span>
+            </p>
+        </div>
+        <div class="flex items-center space-x-4 mb-4">
+            <label for="cantidad" class="block text-gray-700">Cantidad:</label>
+            <input
+                id="cantidad"
+                type="number"
+                class="w-20 p-2 border border-gray-300 rounded text-center"
+                value="1"
+                min="1"
+            />
+        </div>
+        <p class="text-lg font-bold">
+            Precio total: <span id="precio-total"></span>
+        </p>
+        <div class="flex space-x-4 mt-4">
+            <button id="cancelar-detalle" class="w-1/2 bg-red-500 text-white p-2 rounded hover:bg-red-600">
+                Cancelar
+            </button>
+            <button id="confirmar-detalle" class="w-1/2 bg-green-500 text-white p-2 rounded hover:bg-green-600">
+                Confirmar
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Sidebar de Productos -->
+<div id="sidebar-productos" class="fixed left-0 top-0 h-full w-80 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+    <div class="p-4 border-b">
+        <h2 class="text-2xl font-bold">Productos</h2>
+    </div>
+    <div id="productos-contenido" class="p-4">
+        <a href="productos.html" class="text-blue-500 hover:underline">Productos</a>
+    </div>
+    <div class="p-4 border-t">
+        <button id="cerrar-productos" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600">
+            Cerrar
+        </button>
+    </div>
+</div>
+
+    <div id="grid-productos" class="grid grid-cols-3 gap-4 p-6">
+    </div>
+
+    <script src="scripts/menu.js"></script>
+</body>
+</html>

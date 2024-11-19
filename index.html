@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center mb-6">Iniciar Sesión</h2>
+        <form id="form-login" action="/ruta-para-login" method="POST" class="space-y-4">
+            <div>
+                <label for="email-login" class="block text-gray-700 font-medium">Correo Electrónico</label>
+                <input type="email" id="email-login" name="email" class="w-full border border-gray-300 p-2 rounded" placeholder="Tu correo" required>
+            </div>
+            <div>
+                <label for="password-login" class="block text-gray-700 font-medium">Contraseña</label>
+                <input type="password" id="password-login" name="password" class="w-full border border-gray-300 p-2 rounded" placeholder="Tu contraseña" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Iniciar Sesión</button>
+        </form>
+        
+        <div class="mt-4 text-center">
+            <p>¿No tienes una cuenta? <a href="/NuevaCuenta.html" class="text-blue-500 hover:underline">Crea una aquí</a></p>
+        </div>
+    </div>
+<script src="scripts\login.js"></script>
+</body>
+</html>
